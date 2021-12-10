@@ -27,4 +27,19 @@ public class AlunoServiceImpl implements AlunoService {
 		return alunoRepository.save(aluno);
 	}
 
+	@Override
+	public Aluno getAlunoById(Long id) {
+		return alunoRepository.findById(id).get();
+	}
+
+	@Override
+	public Aluno atualizarAluno(Aluno aluno) {
+		return alunoRepository.save(aluno);
+	}
+
+	@Override
+	public void excluirAlunoById(Long id) {
+		alunoRepository.deleteById(id);
+	}
+
 }

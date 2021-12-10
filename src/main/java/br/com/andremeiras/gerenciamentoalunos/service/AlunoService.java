@@ -9,4 +9,10 @@ public interface AlunoService {
 	List<Aluno> getAllAlunos();
 
 	Aluno salvarAluno(Aluno aluno);
+
+	Aluno getAlunoById(Long id);
+
+	Aluno atualizarAluno(Aluno aluno);
+
+	void excluirAlunoById(Long id);
 }
