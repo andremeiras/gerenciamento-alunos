@@ -11,7 +11,7 @@ import br.com.andremeiras.gerenciamentoalunos.entity.Aluno;
 import br.com.andremeiras.gerenciamentoalunos.service.AlunoService;
 
 @Controller
-public abstract class AlunoController {
+public class AlunoController {
 
 	private AlunoService alunoService;
 
@@ -22,7 +22,6 @@ public abstract class AlunoController {
 	@GetMapping("/alunos")
 	public String listarAlunos(Model model) {
 		model.addAttribute("alunos", alunoService.getAllAlunos());
-
 		return "alunos.html";
 	}
 
