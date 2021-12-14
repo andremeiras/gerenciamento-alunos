@@ -22,26 +22,26 @@ public class AlunoController {
 	@GetMapping("/alunos")
 	public String listarAlunos(Model model) {
 		model.addAttribute("alunos", alunoService.getAllAlunos());
-		return "alunos.html";
+		return "alunos";
 	}
 
 	@GetMapping("/alunos/cadastro")
 	public String cadastrarAlunoViaForm(Model model) {
 		Aluno aluno = new Aluno();
 		model.addAttribute("aluno", aluno);
-		return "cadastrarAluno.html";
+		return "cadastrarAluno";
 	}
 
 	@PostMapping("/alunos")
 	public String salvarAluno(@ModelAttribute("aluno") Aluno aluno) {
 		alunoService.salvarAluno(aluno);
-		return "redirect:/alunos.html";
+		return "redirect:/alunos";
 	}
 
 	@GetMapping("/alunos/editar/{id}")
 	public String editarAlunoViaForm(@PathVariable Long id, Model model) {
 		model.addAttribute("aluno", alunoService.getAlunoById(id));
-		return "atualizarAluno.html";
+		return "atualizarAluno";
 	}
 
 	@PostMapping("/alunos/{id}")
@@ -61,6 +61,6 @@ public class AlunoController {
 	@GetMapping("/alunos/excluir/{id}")
 	public String excluirAluno(@PathVariable Long id) {
 		alunoService.excluirAlunoById(id);
-		return "atualizarAluno.html";
+		return "redirect:/alunos";
 	}
 }
